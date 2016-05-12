@@ -1,0 +1,402 @@
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46236 Dest Port : 80 Sequence Number : 1580670757 Acknowledgement : 1817519727 TCP header length : 8
+Data : 
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46237 Dest Port : 80 Sequence Number : 3613806188 Acknowledgement : 0 TCP header length : 10
+Data : 
+
+Destination MAC : 84:a6:c8:e9:29:06 Source MAC : a0:63:91:57:26:a2 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 57 Protocol : 6 Source Address : 184.25.56.188 Destination Address : 192.168.0.12
+Source Port : 80 Dest Port : 46237 Sequence Number : 4232932882 Acknowledgement : 3613806189 TCP header length : 10
+Data : 
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46237 Dest Port : 80 Sequence Number : 3613806189 Acknowledgement : 4232932883 TCP header length : 8
+Data : 
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46237 Dest Port : 80 Sequence Number : 3613806189 Acknowledgement : 4232932883 TCP header length : 8
+Data : GET /cgi-bin/mgetmetar.pl?cccc=KBOS HTTP/1.1
+Host: weather.noaa.gov
+
+
+
+Destination MAC : 84:a6:c8:e9:29:06 Source MAC : a0:63:91:57:26:a2 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 57 Protocol : 6 Source Address : 184.25.56.188 Destination Address : 192.168.0.12
+Source Port : 80 Dest Port : 46237 Sequence Number : 4232932883 Acknowledgement : 3613806261 TCP header length : 8
+Data : 
+
+Destination MAC : 84:a6:c8:e9:29:06 Source MAC : a0:63:91:57:26:a2 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 57 Protocol : 6 Source Address : 184.25.56.188 Destination Address : 192.168.0.12
+Source Port : 80 Dest Port : 46237 Sequence Number : 4232932883 Acknowledgement : 3613806261 TCP header length : 8
+Data : HTTP/1.1 301 Moved Permanently
+Server: Apache
+Location: http://weather.noaa.gov/mgetmetar.php?cccc=KBOS
+Content-Length: 321
+Content-Type: text/html; charset=iso-8859-1
+Date: Thu, 12 May 2016 03:24:39 GMT
+Connection: keep-alive
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://weather.noaa.gov/mgetmetar.php?cccc=KBOS">here</a>.</p>
+<hr>
+<address>Apache Server at weather.noaa.gov Port 80</address>
+</body></html>
+
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46237 Dest Port : 80 Sequence Number : 3613806261 Acknowledgement : 4232933440 TCP header length : 8
+Data : 
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46237 Dest Port : 80 Sequence Number : 3613806261 Acknowledgement : 4232933440 TCP header length : 8
+Data : GET /mgetmetar.php?cccc=KBOS HTTP/1.1
+Host: weather.noaa.gov
+
+
+
+Destination MAC : 84:a6:c8:e9:29:06 Source MAC : a0:63:91:57:26:a2 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 57 Protocol : 6 Source Address : 184.25.56.188 Destination Address : 192.168.0.12
+Source Port : 80 Dest Port : 46237 Sequence Number : 4232933440 Acknowledgement : 3613806326 TCP header length : 8
+Data : HTTP/1.1 200 OK
+Server: Apache
+X-Powered-By: PHP/5.3.3
+Content-Type: text/html; charset=UTF-8
+Cache-Control: max-age=52
+Expires: Thu, 12 May 2016 03:25:32 GMT
+Date: Thu, 12 May 2016 03:24:40 GMT
+Content-Length: 7359
+Connection: keep-alive
+
+
+<html lang="en">
+<head>
+<link rel="STYLESHEET" type="text/css" href="/main.css">
+<!-- #BeginEditable "doctitle" --> <!-- #EndEditable --> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="rating" content="general">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="author" content="National Weather Service Telecommunication Operations Center Web Team">
+<meta name="robot" content="all">
+<meta name="Content-Language" content="en-US">
+<meta NAME="AUTHOR" CONTENT="NWS/Office of Systems Operations, Systems Operations Center, Silver Spring, MD; July 22, 1999">
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta NAME="KEYWORDS" CONTENT="METAR Data Access, METAR reports">
+<title> METAR Data Access </title>
+
+<meta HTTP-EQUIV="Window-target" CONTENT="_top">
+ 
+<base TARGET="_top">
+ 
+<script TYPE="text/javascript" LANGUAGE="JAVASCRIPT">
+<!--
+function init() {
+if (top.frames.length!=0)
+top.location=self.document.location; 
+}
+//-->
+ </script>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+<table cellspacing="0" cellp
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46237 Dest Port : 80 Sequence Number : 3613806326 Acknowledgement : 4232934888 TCP header length : 8
+Data : 
+
+Destination MAC : 84:a6:c8:e9:29:06 Source MAC : a0:63:91:57:26:a2 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 57 Protocol : 6 Source Address : 184.25.56.188 Destination Address : 192.168.0.12
+Source Port : 80 Dest Port : 46237 Sequence Number : 4232934888 Acknowledgement : 3613806326 TCP header length : 8
+Data : adding="0" border="0" width="100%"
+ background="/images/topbanner.jpg">
+<tr>
+<td align="right"><a href="#contents"><img src="/images/skipgraphic.gif"
+ alt="Skip Navigation Link" width="1" height="1" border="0"></a><a
+ href="http://www.nws.noaa.gov"><span
+ class="nwslink">www.weather.gov</span></a>&nbsp;</td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+
+<td rowspan="2"><a href="http://www.noaa.gov"><img src="/images/noaaleft.jpg"
+ alt="NOAA logo - Select to go to the NOAA homepage" width="85" height="78"
+ border="0"></a></td>
+<td align="left"><img src="/officenames/top_nws_title.jpg" alt="National Weather Service
+ Headquarters Office" width="500" height="20" border="0"></td>
+<td rowspan="2" width="100%" background="/images/wfo_bkgrnd.jpg">&nbsp;</td>
+<td rowspan="2" align="right"><img src="/images/nwsright.jpg" alt="NWS logo"
+ width="85" height="78" border="0"></td>
+</tr>
+
+<tr>
+<td><img src="/officenames/iws_name.jpg" alt="Internet Weather Source"
+ width="500" height="58" border="0"></td>
+</tr>
+</table>
+
+<table cellspacing="0" cellpadding="0" border="0"
+ background="/images/navbkgrnd.gif" width="100%">
+<tr>
+<td align="left" valign="top" width="94"><img src="/images/navbarleft.jpg" alt="" width="94"
+ height="23" border="0"></td>
+<td class="nav" width="10%" align="center" id=menuitem><a href="http://weather.gov/sitemap.html">Site
+ Map</a></td>
+<td class="nav" width="10%" align="right" id
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46237 Dest Port : 80 Sequence Number : 3613806326 Acknowledgement : 4232936336 TCP header length : 8
+Data : 
+
+Destination MAC : 84:a6:c8:e9:29:06 Source MAC : a0:63:91:57:26:a2 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 57 Protocol : 6 Source Address : 184.25.56.188 Destination Address : 192.168.0.12
+Source Port : 80 Dest Port : 46237 Sequence Number : 4232936336 Acknowledgement : 3613806326 TCP header length : 8
+Data : =menuitem><a
+ href="http://weather.gov/pa/">News</a></td>
+
+<td class="nav" width="19%" align="right" id=menuitem><a
+ href="http://www.nws.noaa.gov/organization.html">Organization</a></td>
+
+<!-- Start NWS Search section -->
+<td class="yellow" align="right" width="20%">
+<form action="http://www.firstgov.gov/fgsearch/index.jsp" name="query">
+<label for="search">Search</label>&nbsp;</td>
+<td align="left" class="searchinput" width="20%" nowrap>
+<input type="hidden" name="parsed" value="true">
+<input type="hidden" name="rn" value="3">
+<input type="hidden" name="in0" value="domain">
+<input type="hidden" name="dom0" value="nws.noaa.gov, weather.gov, wrh.noaa.gov, srh.noaa.gov, crh.noaa.gov, prh.noaa.gov,
+arh.noaa.gov, alaska.net/~nwsar, erh.noaa.gov, ncep.noaa.gov, spc.noaa.gov, nhc.noaa.gov, sec.noaa.gov, aviationweather.gov,
+aviationweather.noaa.gov, weather.noaa.gov, roc.noaa.gov, nohrsc.nws.gov, nwstc.noaa.gov, wdtb.noaa.gov, npmoc.navy.mil,
+ndbc.noaa.gov">
+<input type="text" name="mw0" value="Enter Search Here" id="search" size="20" maxlength="256">&nbsp;<input type="submit"
+name="Go2" value="Go"></td>
+<td width="10%"></form>&nbsp;</td>
+<td align="right" valign="bottom" width="24"><img src="/images/navbarendcap.jpg" alt="" width="24" height="23" border="0"></td>
+</tr>
+
+</table>
+<!-- BEGIN LEFT MARGIN TEXT HERE -->
+<table BORDER="0" CELLSPACING="0">
+  <tr VALIGN="top"> 
+    
+<td BGCOLOR="#0a2390" WIDTH="130" BORDERCOLOR="#003399
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46237 Dest Port : 80 Sequence Number : 3613806326 Acknowledgement : 4232937784 TCP header length : 8
+Data : 
+
+Destination MAC : 84:a6:c8:e9:29:06 Source MAC : a0:63:91:57:26:a2 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 57 Protocol : 6 Source Address : 184.25.56.188 Destination Address : 192.168.0.12
+Source Port : 80 Dest Port : 46237 Sequence Number : 4232937784 Acknowledgement : 3613806326 TCP header length : 8
+Data : "
+			CLASS="white" ID="menuitem" > <br>
+
+      <br>
+<br>
+      <center>
+<h3><a href="/">IWS<br>Home</a></h3>      <br>
+      <a href="http://weather.gov">NWS Home</a><br><br>
+
+
+      <br><a href="http://weather.noaa.gov/radar/">Radar Graphics</a><br><br>
+            <br><a Href="http://weather.noaa.gov/fax/">Weather Maps</a>
+	   <br><br><br>
+	   <a HREF="http://weather.noaa.gov/international.html">International<br>
+Current<br>Conditions</a>
+	  <br>
+
+<br><br>
+          <a HREF="../weather/coded.html">Aviation Weather</a>
+          <br><br><br>
+      <a HREF="http://www.nws.noaa.gov/om/marine/home.htm">Marine Weather</a>
+<br>
+<br>	  
+</center>
+    </td>
+    <!-- END LEFT MARGIN TEXT HERE -->
+    
+<td VALIGN="top" WIDTH="600" > &nbsp; 
+
+
+
+      
+<!-- START BODY OF TEXT HERE -->
+<br>
+<br>
+      
+<table BORDER="0" CELLPADDING="5" width="580" >
+
+        <tr>
+          <td height="194">
+
+
+           <font color="red" face="arial">
+            <P> On or about April 4th, 2012, request for METARS through this service will be redirected to:</font></P>
+          <A HREF="http://www.aviationweather.gov/adds/metars/">http://www.aviationweather.gov/adds/metars/</A>
+           <font color="red" face="arial">
+   <P>This redirection is part of a larger effort to reduce duplication of effort within the National Weather Service.
+The website above offers the same functionality. It also needs to be noted that the NWS Aviation Weather Center
+opera
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46237 Dest Port : 80 Sequence Number : 3613806326 Acknowledgement : 4232939232 TCP header length : 8
+Data : 
+
+Destination MAC : 84:a6:c8:e9:29:06 Source MAC : a0:63:91:57:26:a2 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 57 Protocol : 6 Source Address : 184.25.56.188 Destination Address : 192.168.0.12
+Source Port : 80 Dest Port : 46237 Sequence Number : 4232939232 Acknowledgement : 3613806326 TCP header length : 8
+Data : ted website above is the only FAA approved source of aviation weather overe the Internet  to be used for
+pilot briefings. Please update bookmarks, links, etc..
+           </font></P><font face="arial">
+<H3>KBOS</H3>
+<P>The most recent METAR observation from <B>KBOS</B> in our system was generated at the source at:</P>
+<P><FONT COLOR="#48D1CC"><B>
+2016/05/12 03:05
+ UTC
+</B></FONT></P>
+<P>The observation is:</P>
+</font>
+<font face="courier" size = "5">
+
+</font>
+<hr>2016/05/12 02:54
+KBOS 120254Z 28003KT 10SM CLR 17/06 A3011 RMK AO2 SLP197 T01670056 51018
+
+</FONT></TT></P>
+</td>
+          </tr>
+        </table>
+</table>
+<!-- footer -->
+<table width="80%" cellspacing="2" cellpadding="2" border="0">
+  <tr> 
+    <td colspan="3"> 
+      <hr>
+
+    </td>
+  </tr>
+  <tr valign="TOP"> 
+    <td class="gray"> <a href="http://www.doc.gov"><span class="gray">US Dept 
+      of Commerce</span></a><br>
+      <a href="http://www.noaa.gov"><span class="gray">National Oceanic and Atmospheric 
+      Administration</span></a><br>
+
+      National Weather Service<br>
+      Office of the Chief Information Officer (OCIO13)<br>
+
+      1325 East West Highway<br>
+      Silver Spring, MD 20910<br>
+      Page last modified: Feb 28, 2012<br>
+      Page Author: <a href="mailto:w-nws.webmaster@noaa.gov"><span class="gray">NWS Webmaster</span></a></td>
+
+    <td><a href="http://weather.gov/disclaimer.html"><span class="gray">Disclaimer</span></a><br>
+      <a hre
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46237 Dest Port : 80 Sequence Number : 3613806326 Acknowledgement : 4232940680 TCP header length : 8
+Data : 
+
+Destination MAC : 84:a6:c8:e9:29:06 Source MAC : a0:63:91:57:26:a2 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 57 Protocol : 6 Source Address : 184.25.56.188 Destination Address : 192.168.0.12
+Source Port : 80 Dest Port : 46237 Sequence Number : 4232940680 Acknowledgement : 3613806326 TCP header length : 8
+Data : f="http://weather.gov/feedback.shtml"><span class="gray">Feedback</span></a> </td>
+
+    <td align="right"><a href="http://weather.gov/notice.html"><span class="gray">Privacy Notice</span></a><br>
+      <a href="http://weather.gov/credits.html"><span class="gray">Credits</span></a> </td>
+  </tr>
+
+</table>
+
+
+
+
+
+</body>
+</html>
+
+<br /><!-- Cached 12th May 2016 03:12 -->
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46237 Dest Port : 80 Sequence Number : 3613806326 Acknowledgement : 4232941049 TCP header length : 8
+Data : 
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46236 Dest Port : 80 Sequence Number : 1580670757 Acknowledgement : 1817519727 TCP header length : 8
+Data : 
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46236 Dest Port : 80 Sequence Number : 1580670757 Acknowledgement : 1817519727 TCP header length : 8
+Data : 
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46236 Dest Port : 80 Sequence Number : 1580670757 Acknowledgement : 1817519727 TCP header length : 8
+Data : 
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46236 Dest Port : 80 Sequence Number : 1580670757 Acknowledgement : 1817519727 TCP header length : 8
+Data : 
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46236 Dest Port : 80 Sequence Number : 1580670757 Acknowledgement : 1817519727 TCP header length : 8
+Data : 
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46236 Dest Port : 80 Sequence Number : 1580670757 Acknowledgement : 1817519727 TCP header length : 8
+Data : 
+
+Destination MAC : 00:00:00:00:00:00 Source MAC : 00:00:00:00:00:00 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 127.0.0.1 Destination Address : 127.0.0.1
+Source Port : 53493 Dest Port : 4949 Sequence Number : 869158917 Acknowledgement : 0 TCP header length : 10
+Data : 
+
+Destination MAC : 00:00:00:00:00:00 Source MAC : 00:00:00:00:00:00 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 127.0.0.1 Destination Address : 127.0.0.1
+Source Port : 53493 Dest Port : 4949 Sequence Number : 869158917 Acknowledgement : 0 TCP header length : 10
+Data : 
+
+Destination MAC : 00:00:00:00:00:00 Source MAC : 00:00:00:00:00:00 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 127.0.0.1 Destination Address : 127.0.0.1
+Source Port : 4949 Dest Port : 53493 Sequence Number : 0 Acknowledgement : 869158918 TCP header length : 5
+Data : 
+
+Destination MAC : 00:00:00:00:00:00 Source MAC : 00:00:00:00:00:00 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 127.0.0.1 Destination Address : 127.0.0.1
+Source Port : 4949 Dest Port : 53493 Sequence Number : 0 Acknowledgement : 869158918 TCP header length : 5
+Data : 
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46236 Dest Port : 80 Sequence Number : 1580670757 Acknowledgement : 1817519727 TCP header length : 8
+Data : 
+
+Destination MAC : a0:63:91:57:26:a2 Source MAC : 84:a6:c8:e9:29:06 Protocol : 8
+Version : 4 IP Header Length : 5 TTL : 64 Protocol : 6 Source Address : 192.168.0.12 Destination Address : 184.25.56.188
+Source Port : 46236 Dest Port : 80 Sequence Number : 1580670757 Acknowledgement : 1817519727 TCP header length : 8
+Data : 
+

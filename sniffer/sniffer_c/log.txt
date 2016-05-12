@@ -1,0 +1,293 @@
+
+
+***********************UDP Packet*************************
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : D2-38-59-45-09-79 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 16
+   |-IP Total Length   : 328  Bytes(Size of Packet)
+   |-Identification    : 0
+   |-TTL      : 128
+   |-Protocol : 17
+   |-Checksum : 14742
+   |-Source IP        : 0.0.0.0
+   |-Destination IP   : 255.255.255.255
+
+UDP Header
+   |-Source Port      : 68
+   |-Destination Port : 67
+   |-UDP Length       : 308
+   |-UDP Checksum     : 18997
+
+IP Header
+    FF FF FF FF FF FF D2 38 59 45 09 79 08 00 45 10         .......8YE.y..E.
+    01 48 00 00                                             .H..
+UDP Header
+    00 00 80 11 39 96 00 00                                 ..€.9...
+Data Payload
+    01 01 06 00 B7 20 62 0F 00 1E 00 00 00 00 00 00         ..... b.........
+    00 00 00 00 00 00 00 00 00 00 00 00 D2 38 59 45         .............8YE
+    09 79 00 00 00 00 00 00 00 00 00 00 00 00 00 00         .y..............
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 63 82 53 63         ............c.Sc
+    35 01 01 37 0D 01 1C 02 79 0F 06 0C 28 29 2A 1A         5..7....y...()*.
+    77 03 FF 00 00 00 00 00 00 00 00 00 00 00 00 00         w...............
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00                     ............
+Data RAW
+............................................................................................................................................................................................................................................................................................................
+###########################################################
+
+***********************UDP Packet*************************
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : D2-38-59-45-09-79 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 16
+   |-IP Total Length   : 328  Bytes(Size of Packet)
+   |-Identification    : 0
+   |-TTL      : 128
+   |-Protocol : 17
+   |-Checksum : 14742
+   |-Source IP        : 0.0.0.0
+   |-Destination IP   : 255.255.255.255
+
+UDP Header
+   |-Source Port      : 68
+   |-Destination Port : 67
+   |-UDP Length       : 308
+   |-UDP Checksum     : 18987
+
+IP Header
+    FF FF FF FF FF FF D2 38 59 45 09 79 08 00 45 10         .......8YE.y..E.
+    01 48 00 00                                             .H..
+UDP Header
+    00 00 80 11 39 96 00 00                                 ..€.9...
+Data Payload
+    01 01 06 00 B7 20 62 0F 00 28 00 00 00 00 00 00         ..... b..(......
+    00 00 00 00 00 00 00 00 00 00 00 00 D2 38 59 45         .............8YE
+    09 79 00 00 00 00 00 00 00 00 00 00 00 00 00 00         .y..............
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00 63 82 53 63         ............c.Sc
+    35 01 01 37 0D 01 1C 02 79 0F 06 0C 28 29 2A 1A         5..7....y...()*.
+    77 03 FF 00 00 00 00 00 00 00 00 00 00 00 00 00         w...............
+    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00         ................
+    00 00 00 00 00 00 00 00 00 00 00 00                     ............
+Data RAW
+............................................................................................................................................................................................................................................................................................................
+###########################################################
+
+***********************UDP Packet*************************
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : 00-18-4D-FF-FF-07 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 211  Bytes(Size of Packet)
+   |-Identification    : 0
+   |-TTL      : 64
+   |-Protocol : 17
+   |-Checksum : 47040
+   |-Source IP        : 192.168.0.10
+   |-Destination IP   : 192.168.0.255
+
+UDP Header
+   |-Source Port      : 2190
+   |-Destination Port : 2190
+   |-UDP Length       : 191
+   |-UDP Checksum     : 37703
+
+IP Header
+    FF FF FF FF FF FF 00 18 4D FF FF 07 08 00 45 00         ........M.....E.
+    00 D3 00 00                                             ....
+UDP Header
+    40 00 40 11 B7 C0 C0 A8                                 @.@.....
+Data Payload
+    54 69 56 6F 43 6F 6E 6E 65 63 74 3D 31 0A 73 77         TiVoConnect=1.sw
+    76 65 72 73 69 6F 6E 3D 31 2E 30 0A 6D 65 74 68         version=1.0.meth
+    6F 64 3D 62 72 6F 61 64 63 61 73 74 0A 69 64 65         od=broadcast.ide
+    6E 74 69 74 79 3D 75 75 69 64 3A 34 64 36 39 36         ntity=uuid:4d696
+    65 36 39 2D 34 34 34 63 2D 31 36 34 65 2D 39 64         e69-444c-164e-9d
+    34 31 2D 30 30 31 38 34 64 66 66 66 66 30 37 0A         41-00184dffff07.
+    6D 61 63 68 69 6E 65 3D 52 65 61 64 79 44 4C 4E         machine=ReadyDLN
+    41 3A 43 33 30 30 30 2D 31 30 30 4E 41 53 0A 70         A:C3000-100NAS.p
+    6C 61 74 66 6F 72 6D 3D 70 63 2F 6D 69 6E 69 64         latform=pc/minid
+    6C 6E 61 0A 73 65 72 76 69 63 65 73 3D 54 69 56         lna.services=TiV
+    6F 4D 65 64 69 61 53 65 72 76 65 72 3A 38 32 30         oMediaServer:820
+    30 2F 68 74 74 70 0A                                    0/http.
+Data RAW
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+###########################################################
+
+***********************UDP Packet*************************
+
+Ethernet Header
+   |-Destination Address : FF-FF-FF-FF-FF-FF 
+   |-Source Address      : 00-18-4D-FF-FF-07 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 211  Bytes(Size of Packet)
+   |-Identification    : 0
+   |-TTL      : 64
+   |-Protocol : 17
+   |-Checksum : 47040
+   |-Source IP        : 192.168.0.10
+   |-Destination IP   : 192.168.0.255
+
+UDP Header
+   |-Source Port      : 2190
+   |-Destination Port : 2190
+   |-UDP Length       : 191
+   |-UDP Checksum     : 37703
+
+IP Header
+    FF FF FF FF FF FF 00 18 4D FF FF 07 08 00 45 00         ........M.....E.
+    00 D3 00 00                                             ....
+UDP Header
+    40 00 40 11 B7 C0 C0 A8                                 @.@.....
+Data Payload
+    54 69 56 6F 43 6F 6E 6E 65 63 74 3D 31 0A 73 77         TiVoConnect=1.sw
+    76 65 72 73 69 6F 6E 3D 31 2E 30 0A 6D 65 74 68         version=1.0.meth
+    6F 64 3D 62 72 6F 61 64 63 61 73 74 0A 69 64 65         od=broadcast.ide
+    6E 74 69 74 79 3D 75 75 69 64 3A 34 64 36 39 36         ntity=uuid:4d696
+    65 36 39 2D 34 34 34 63 2D 31 36 34 65 2D 39 64         e69-444c-164e-9d
+    34 31 2D 30 30 31 38 34 64 66 66 66 66 30 37 0A         41-00184dffff07.
+    6D 61 63 68 69 6E 65 3D 52 65 61 64 79 44 4C 4E         machine=ReadyDLN
+    41 3A 43 33 30 30 30 2D 31 30 30 4E 41 53 0A 70         A:C3000-100NAS.p
+    6C 61 74 66 6F 72 6D 3D 70 63 2F 6D 69 6E 69 64         latform=pc/minid
+    6C 6E 61 0A 73 65 72 76 69 63 65 73 3D 54 69 56         lna.services=TiV
+    6F 4D 65 64 69 61 53 65 72 76 65 72 3A 38 32 30         oMediaServer:820
+    30 2F 68 74 74 70 0A                                    0/http.
+Data RAW
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+###########################################################
+
+***********************TCP Packet*************************
+
+Ethernet Header
+   |-Destination Address : 00-00-00-00-00-00 
+   |-Source Address      : 00-00-00-00-00-00 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 60  Bytes(Size of Packet)
+   |-Identification    : 20757
+   |-TTL      : 64
+   |-Protocol : 6
+   |-Checksum : 60324
+   |-Source IP        : 127.0.0.1
+   |-Destination IP   : 127.0.0.1
+
+TCP Header
+   |-Source Port      : 47595
+   |-Destination Port : 4949
+   |-Sequence Number    : 4236450267
+   |-Acknowledge Number : 0
+   |-Header Length      : 10 DWORDS or 40 BYTES
+   |-Urgent Flag          : 0
+   |-Acknowledgement Flag : 0
+   |-Push Flag            : 0
+   |-Reset Flag           : 0
+   |-Synchronise Flag     : 1
+   |-Finish Flag          : 0
+   |-Window         : 65495
+   |-Checksum       : 62800
+   |-Urgent Pointer : 0
+
+                        DATA Dump                         
+IP Header
+    00 00 00 00 00 00 00 00 00 00 00 00 08 00 45 00         ..............E.
+    00 3C 51 15                                             .<Q.
+TCP Header
+    40 00 40 06 EB A4 7F 00 00 01 7F 00 00 01 B9 EB         @.@...........
+    13 55 FC 83 19 DB 00 00 00 00 A0 02 FF D7 F5 50         .U.............P
+    00 00 02 04 FF D7 04 02                                 ........
+Data Payload
+Data RAW
+
+###########################################################
+
+***********************TCP Packet*************************
+
+Ethernet Header
+   |-Destination Address : 00-00-00-00-00-00 
+   |-Source Address      : 00-00-00-00-00-00 
+   |-Protocol            : 8 
+
+IP Header
+   |-IP Version        : 4
+   |-IP Header Length  : 5 DWORDS or 20 Bytes
+   |-Type Of Service   : 0
+   |-IP Total Length   : 60  Bytes(Size of Packet)
+   |-Identification    : 20757
+   |-TTL      : 64
+   |-Protocol : 6
+   |-Checksum : 60324
+   |-Source IP        : 127.0.0.1
+   |-Destination IP   : 127.0.0.1
+
+TCP Header
+   |-Source Port      : 47595
+   |-Destination Port : 4949
+   |-Sequence Number    : 4236450267
+   |-Acknowledge Number : 0
+   |-Header Length      : 10 DWORDS or 40 BYTES
+   |-Urgent Flag          : 0
+   |-Acknowledgement Flag : 0
+   |-Push Flag            : 0
+   |-Reset Flag           : 0
+   |-Synchronise Flag     : 1
+   |-Finish Flag          : 0
+   |-Window         : 65495
+   |-Checksum       : 62800
+   |-Urgent Pointer : 0
+
+                        DATA Dump                         
+IP Header
+    00 00 00 00 00 00 00 00 00 00 00 00 08 00 45 00         ..............E.
+    00 3C 51 15                                             .<Q.
+TCP Header
+    40 00 40 06 EB A4 7F 00 00 01
