@@ -4,7 +4,7 @@
 #include<stdio.h> 
 #include<stdlib.h>    
 #include<string.h>  
- 
+#include<net/if_arp.h>
 #include<netinet/ip_icmp.h>  
 #include<netinet/udp.h>   
 #include<netinet/tcp.h>  
@@ -145,7 +145,7 @@ void print_ethernet_header(unsigned char* Buffer, int Size)
 void print_arp(unsigned char* Buffer, int Size)
 {
 	struct ether_arp *arph = (struct ether_arp*)(Buffer + sizeof(struct ethhdr));
-	if (arph->arph->ar_op == ARP_REQUEST){fprintf(logfile,"ARP Request \n"}
+	if (arph->ea_hdr->ar_op == ARP_REQUEST){fprintf(logfile,"ARP Request \n"}
 	else if (arph->arph->ar_op == ARP_REPLY){fprintf(logfile,"ARP Reply \n"}
 	fprintf(logfile,"Sender MAC: "); 
 	for(i=0; i<6;i++)
