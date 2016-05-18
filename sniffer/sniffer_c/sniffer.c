@@ -24,6 +24,7 @@ void print_tcp_packet(unsigned char * , int );
 void print_udp_packet(unsigned char * , int );
 void print_icmp_packet(unsigned char* , int );
 void PrintData (unsigned char* , int);
+void print_others(unsigned char*, int);
 void print_raw(unsigned char*, int);
  
 FILE *logfile;
@@ -116,12 +117,16 @@ void ProcessPacket(unsigned char* buffer, int size)
             break;
          
         default: //Some Other Protocol like ARP etc.
-            //++others;
+            ++others;
+	    print_ip_header(buffer,size);
             break;
     }
     printf("TCP : %d   UDP : %d   ICMP : %d   IGMP : %d   Others : %d   Total : %d\r", tcp , udp , icmp , igmp , others , total);
 }
- 
+void print_others(unsigned char* Buffer, int Size)
+{
+
+} 
 void print_ethernet_header(unsigned char* Buffer, int Size)
 {
     struct ethhdr *eth = (struct ethhdr *)Buffer;
@@ -154,7 +159,7 @@ void print_ip_header(unsigned char* Buffer, int Size)
     fprintf(logfile , "   |-IP Version        : %d\n",(unsigned int)iph->version);
     fprintf(logfile , "   |-IP Header Length  : %d DWORDS or %d Bytes\n",(unsigned int)iph->ihl,((unsigned int)(iph->ihl))*4);
     fprintf(logfile , "   |-Type Of Service   : %d\n",(unsigned int)iph->tos);
-    fprintf(logfile , "   |-IP Total Length   : %d  Bytes(Size of Packet)\n",ntohs(iph->tot_len));
+    fprintf(logfile , "   |-IP Total QLength   : %d  Bytes(Size of Packet)\n",ntohs(iph->tot_len));
     fprintf(logfile , "   |-Identification    : %d\n",ntohs(iph->id));
     //fprintf(logfile , "   |-Reserved ZERO Field   : %d\n",(unsigned int)iphdr->ip_reserved_zero);
     //fprintf(logfile , "   |-Dont Fragment Field   : %d\n",(unsigned int)iphdr->ip_dont_fragment);
@@ -219,7 +224,7 @@ void print_tcp_packet(unsigned char* Buffer, int Size)
  
 void print_raw(unsigned char *data,int size) {
 	for (i = 0 ; i <size; i++ ){
-		fprintf(logfile , "%c",(unsigned char)data[j]);
+		fprintf(logfile , "%c",(unsigned char)data[i]);
     	}
 }
 void print_udp_packet(unsigned char *Buffer , int Size)
