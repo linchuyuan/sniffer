@@ -1,16 +1,16 @@
 #include<netinet/in.h>
 #include<errno.h>
 #include<netdb.h>
-#include<stdio.h> //For standard things
-#include<stdlib.h>    //malloc
-#include<string.h>    //strlen
+#include<stdio.h> 
+#include<stdlib.h>    
+#include<string.h>  
  
-#include<netinet/ip_icmp.h>   //Provides declarations for icmp header
-#include<netinet/udp.h>   //Provides declarations for udp header
-#include<netinet/tcp.h>   //Provides declarations for tcp header
-#include<netinet/ip.h>    //Provides declarations for ip header
-#include<netinet/if_ether.h>  //For ETH_P_ALL
-#include<net/ethernet.h>  //For ether_header
+#include<netinet/ip_icmp.h>  
+#include<netinet/udp.h>   
+#include<netinet/tcp.h>  
+#include<netinet/ip.h>   
+#include<netinet/if_ether.h>  
+#include<net/ethernet.h>  
 #include<sys/socket.h>
 #include<arpa/inet.h>
 #include<sys/ioctl.h>
@@ -50,17 +50,12 @@ int main()
      
     if(sock_raw < 0)
     {
-        //Print the error with proper message
         perror("Socket Error");
         return 1;
     }
     while(1)
-    {
-       
-////////////////////////////////////////////////////////////////////////////////////////////////////
-	saddr_size = sizeof saddr;
-
-        //Receive a packet
+    {      
+		saddr_size = sizeof saddr;
         data_size = recvfrom(sock_raw , buffer , 65536 , 0 , &saddr , (socklen_t*)&saddr_size);
         if(data_size <0 )
         {
@@ -77,25 +72,24 @@ int main()
  
 void ProcessPacket(unsigned char* buffer, int size)
 {
-    //Get the IP Header part of this packet , excluding the ethernet header
+	struct ethhdr *eth = (struct ethhdr *)Buffer;
+
     struct iphdr *iph = (struct iphdr*)(buffer + sizeof(struct ethhdr));
-    
     unsigned short iphdrlen;
-
     iphdrlen = iph->ihl*4;
-
     struct tcphdr *tcph=(struct tcphdr*)(buffer + iphdrlen + sizeof(struct ethhdr));
     if (ntohs(tcph->source) == 22 || ntohs(tcph->dest) == 22){return;}
-
+	
     memset(&source, 0, sizeof(source));
     source.sin_addr.s_addr = iph->saddr;
 
     memset(&dest, 0, sizeof(dest));
     dest.sin_addr.s_addr = iph->daddr;
 
-    if (strcmp(inet_ntoa(source.sin_addr),"192.168.0.12") == 0 || strcmp(inet_ntoa(dest.sin_addr),"192.168.0.12") == 0 ){return;}    
+    if (strcmp(inet_ntoa(source.sin_addr),"192.168.0.12") == 0 || strcmp(inet_ntoa(dest.sin_addr),"192.168.0.12") == 0 ){return;} 
+	fprintf (logfile,"The Ethernet protocol is: %X", eth->h_proto);
 
-    switch (iph->protocol) //Check the Protocol and do accordingly...
+    switch (iph->protocol) 
     {
     /*    case 1:  //ICMP Protocol
             ++icmp;
@@ -118,7 +112,7 @@ void ProcessPacket(unsigned char* buffer, int size)
          
         default: //Some Other Protocol like ARP etc.
             ++others;
-	    print_ip_header(buffer,size);
+			print_ip_header(buffer,size);
             break;
     }
     printf("TCP : %d   UDP : %d   ICMP : %d   IGMP : %d   Others : %d   Total : %d\r", tcp , udp , icmp , igmp , others , total);
