@@ -18,17 +18,6 @@
 #include<sys/types.h>
 #include<unistd.h>
 
-typedef struct arphdr{
-	u_int16_t htype;    /* Hardware Type           */ 
-    u_int16_t ptype;    /* Protocol Type           */ 
-    u_char hlen;        /* Hardware Address Length */ 
-    u_char plen;        /* Protocol Address Length */ 
-    u_int16_t oper;     /* Operation Code          */ 
-    u_char sha[6];      /* Sender hardware address */ 
-    u_char spa[4];      /* Sender IP address       */ 
-    u_char tha[6];      /* Target hardware address */ 
-    u_char tpa[4];		/* Target IP address       */ 
-}arphdr_t
  
 void ProcessPacket(unsigned char* , int);
 void print_ip_header(unsigned char* , int);
@@ -85,7 +74,7 @@ int main()
  
 void ProcessPacket(unsigned char* buffer, int size)
 {
-	struct ethhdr *eth = (struct ethhdr *)Buffer;
+	struct ethhdr *eth = (struct ethhdr *)buffer;
 
     struct iphdr *iph = (struct iphdr*)(buffer + sizeof(struct ethhdr));
     unsigned short iphdrlen;
@@ -155,7 +144,7 @@ void print_ethernet_header(unsigned char* Buffer, int Size)
 }
 void print_arp(unsigned char* Buffer, int Size)
 {
-	struct arphdr *arph = (struct arphdr*)(buffer + sizeof(struct ethhdr));
+	struct arphdr *arph = (struct arphdr*)(Buffer + sizeof(struct ethhdr));
 	fprintf(logfile,"Sender MAC: "); 
 	for(i=0; i<6;i++)
         fprintf(logfile,"%02X:", arph->sha[i]); 
