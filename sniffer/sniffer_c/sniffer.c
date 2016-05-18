@@ -145,6 +145,8 @@ void print_ethernet_header(unsigned char* Buffer, int Size)
 void print_arp(unsigned char* Buffer, int Size)
 {
 	struct ether_arp *arph = (struct ether_arp*)(Buffer + sizeof(struct ethhdr));
+	if (arph->arph->ar_op == ARP_REQUEST){fprintf(logfile,"ARP Request \n"}
+	else if (arph->arph->ar_op == ARP_REPLY){fprintf(logfile,"ARP Reply \n"}
 	fprintf(logfile,"Sender MAC: "); 
 	for(i=0; i<6;i++)
         fprintf(logfile,"%02X:", arph->arp_sha[i]); 
