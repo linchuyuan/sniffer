@@ -20,6 +20,7 @@
 
  
 void ProcessPacket(unsigned char* , int);
+void print_ethernet_header(unsigned char* , int );
 void print_ip_header(unsigned char* , int);
 void print_tcp_packet(unsigned char * , int );
 void print_udp_packet(unsigned char * , int );
@@ -147,19 +148,19 @@ void print_arp(unsigned char* Buffer, int Size)
 	struct arphdr *arph = (struct arphdr*)(Buffer + sizeof(struct ethhdr));
 	fprintf(logfile,"Sender MAC: "); 
 	for(i=0; i<6;i++)
-        fprintf(logfile,"%02X:", arph->sha[i]); 
+        fprintf(logfile,"%02X:", arph->arp_sha[i]); 
 
     printf("\nSender IP: "); 
 	for(i=0; i<4;i++)
-        fprintf(logfile,"%d.", arph->spa[i]); 
+        fprintf(logfile,"%d.", arph->arp_spa[i]); 
 
     printf("\nTarget MAC: "); 
     for(i=0; i<6;i++)
-        fprintf(logfile,"%02X:", arph->tha[i]); 
+        fprintf(logfile,"%02X:", arph->arp_tha[i]); 
 
     printf("\nTarget IP: "); 
     for(i=0; i<4; i++)
-        fprintf(logfile,"%d.", arph->tpa[i]); 
+        fprintf(logfile,"%d.", arph->arp_tpa[i]); 
     
     printf("\n"); 
 
