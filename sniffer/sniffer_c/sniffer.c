@@ -145,8 +145,9 @@ void print_ethernet_header(unsigned char* Buffer, int Size)
 void print_arp(unsigned char* Buffer, int Size)
 {
 	struct ether_arp *arph = (struct ether_arp*)(Buffer + sizeof(struct ethhdr));
-	if (arph->ea_hdr->ar_op == ARP_REQUEST){fprintf(logfile,"ARP Request \n"}
-	else if (arph->arph->ar_op == ARP_REPLY){fprintf(logfile,"ARP Reply \n"}
+	if (ntohs(arph->ea_hdr.ar_op) == ARPOP_REQUEST){fprintf(logfile,"ARP Request \n");}
+	else if (ntohs(arph->ea_hdr.ar_op) == ARPOP_REPLY){fprintf(logfile,"ARP Reply \n");}
+	
 	fprintf(logfile,"Sender MAC: "); 
 	for(i=0; i<6;i++)
         fprintf(logfile,"%02X:", arph->arp_sha[i]); 
@@ -186,9 +187,6 @@ void print_ip_header(unsigned char* Buffer, int Size)
     fprintf(logfile , "   |-Type Of Service   : %d\n",(unsigned int)iph->tos);
     fprintf(logfile , "   |-IP Total QLength   : %d  Bytes(Size of Packet)\n",ntohs(iph->tot_len));
     fprintf(logfile , "   |-Identification    : %d\n",ntohs(iph->id));
-    //fprintf(logfile , "   |-Reserved ZERO Field   : %d\n",(unsigned int)iphdr->ip_reserved_zero);
-    //fprintf(logfile , "   |-Dont Fragment Field   : %d\n",(unsigned int)iphdr->ip_dont_fragment);
-    //fprintf(logfile , "   |-More Fragment Field   : %d\n",(unsigned int)iphdr->ip_more_fragment);
     fprintf(logfile , "   |-TTL      : %d\n",(unsigned int)iph->ttl);
     fprintf(logfile , "   |-Protocol : %d\n",(unsigned int)iph->protocol);
     fprintf(logfile , "   |-Checksum : %d\n",ntohs(iph->check));
@@ -218,8 +216,6 @@ void print_tcp_packet(unsigned char* Buffer, int Size)
     fprintf(logfile , "   |-Sequence Number    : %u\n",ntohl(tcph->seq));
     fprintf(logfile , "   |-Acknowledge Number : %u\n",ntohl(tcph->ack_seq));
     fprintf(logfile , "   |-Header Length      : %d DWORDS or %d BYTES\n" ,(unsigned int)tcph->doff,(unsigned int)tcph->doff*4);
-    //fprintf(logfile , "   |-CWR Flag : %d\n",(unsigned int)tcph->cwr);
-    //fprintf(logfile , "   |-ECN Flag : %d\n",(unsigned int)tcph->ece);
     fprintf(logfile , "   |-Urgent Flag          : %d\n",(unsigned int)tcph->urg);
     fprintf(logfile , "   |-Acknowledgement Flag : %d\n",(unsigned int)tcph->ack);
     fprintf(logfile , "   |-Push Flag            : %d\n",(unsigned int)tcph->psh);
@@ -322,8 +318,6 @@ void print_icmp_packet(unsigned char* Buffer , int Size)
      
     fprintf(logfile , "   |-Code : %d\n",(unsigned int)(icmph->code));
     fprintf(logfile , "   |-Checksum : %d\n",ntohs(icmph->checksum));
-    //fprintf(logfile , "   |-ID       : %d\n",ntohs(icmph->id));
-    //fprintf(logfile , "   |-Sequence : %d\n",ntohs(icmph->sequence));
     fprintf(logfile , "\n");
  
     fprintf(logfile , "IP Header\n");
