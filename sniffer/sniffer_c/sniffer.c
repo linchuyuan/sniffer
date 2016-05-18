@@ -150,11 +150,11 @@ void print_arp(unsigned char* Buffer, int Size)
 	for(i=0; i<6;i++)
         fprintf(logfile,"%02X:", arph->arp_sha[i]); 
 
-    printf("\nSender IP: "); 
+    fprintf(logfile,"\nSender IP: "); 
 	for(i=0; i<4;i++)
         fprintf(logfile,"%d.", arph->arp_spa[i]); 
 
-    printf("\nTarget MAC: "); 
+    fprintf(logfile,"\nTarget MAC: "); 
     for(i=0; i<6;i++)
         fprintf(logfile,"%02X:", arph->arp_tha[i]); 
 
@@ -162,7 +162,7 @@ void print_arp(unsigned char* Buffer, int Size)
     for(i=0; i<4; i++)
         fprintf(logfile,"%d.", arph->arp_tpa[i]); 
     
-    printf("\n"); 
+    fprintf(logfile,"\n"); 
 
 	
 }
