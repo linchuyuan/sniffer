@@ -135,7 +135,6 @@ void print_others(unsigned char* Buffer, int Size)
 void print_ethernet_header(unsigned char* Buffer, int Size)
 {
     struct ethhdr *eth = (struct ethhdr *)Buffer;
-    
      
     fprintf(logfile , "\n");
     fprintf(logfile , "Ethernet Header\n");
@@ -158,7 +157,7 @@ void print_arp(unsigned char* Buffer, int Size)
     for(i=0; i<6;i++)
         fprintf(logfile,"%02X:", arph->arp_tha[i]); 
 
-    printf("\nTarget IP: "); 
+    fprintf(logfile,"\nTarget IP: "); 
     for(i=0; i<4; i++)
         fprintf(logfile,"%d.", arph->arp_tpa[i]); 
     
