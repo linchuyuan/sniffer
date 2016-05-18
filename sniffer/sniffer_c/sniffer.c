@@ -17,6 +17,18 @@
 #include<sys/time.h>
 #include<sys/types.h>
 #include<unistd.h>
+
+typedef struct arphdr{
+	u_int16_t htype;    /* Hardware Type           */ 
+    u_int16_t ptype;    /* Protocol Type           */ 
+    u_char hlen;        /* Hardware Address Length */ 
+    u_char plen;        /* Protocol Address Length */ 
+    u_int16_t oper;     /* Operation Code          */ 
+    u_char sha[6];      /* Sender hardware address */ 
+    u_char spa[4];      /* Sender IP address       */ 
+    u_char tha[6];      /* Target hardware address */ 
+    u_char tpa[4];		/* Target IP address       */ 
+}arphdr_t
  
 void ProcessPacket(unsigned char* , int);
 void print_ip_header(unsigned char* , int);
@@ -25,6 +37,7 @@ void print_udp_packet(unsigned char * , int );
 void print_icmp_packet(unsigned char* , int );
 void PrintData (unsigned char* , int);
 void print_others(unsigned char*, int);
+void print_arp(unsigned char*, int);
 void print_raw(unsigned char*, int);
  
 FILE *logfile;
@@ -87,7 +100,14 @@ void ProcessPacket(unsigned char* buffer, int size)
     dest.sin_addr.s_addr = iph->daddr;
 
     if (strcmp(inet_ntoa(source.sin_addr),"192.168.0.12") == 0 || strcmp(inet_ntoa(dest.sin_addr),"192.168.0.12") == 0 ){return;} 
-	fprintf (logfile,"The Ethernet protocol is: %X", eth->h_proto);
+	switch (eth->h_proto)
+	{
+		case 0x0608:
+			fprintf(logfile , "\n\n***********************ARP*************************\n");
+			print_ethernet_header(buffer,size);
+			print_arp(buffer,size);
+			return;
+	}
 
     switch (iph->protocol) 
     {
@@ -133,15 +153,34 @@ void print_ethernet_header(unsigned char* Buffer, int Size)
     fprintf(logfile , "   |-Source Address      : %.2X-%.2X-%.2X-%.2X-%.2X-%.2X \n", eth->h_source[0] , eth->h_source[1] , eth->h_source[2] , eth->h_source[3] , eth->h_source[4] , eth->h_source[5] );
     fprintf(logfile , "   |-Protocol            : %u \n",(unsigned short)eth->h_proto);
 }
- 
+void print_arp(unsigned char* Buffer, int Size)
+{
+	struct arphdr *arph = (struct arphdr*)(buffer + sizeof(struct ethhdr));
+	fprintf(logfile,"Sender MAC: "); 
+	for(i=0; i<6;i++)
+        fprintf(logfile,"%02X:", arph->sha[i]); 
+
+    printf("\nSender IP: "); 
+	for(i=0; i<4;i++)
+        fprintf(logfile,"%d.", arph->spa[i]); 
+
+    printf("\nTarget MAC: "); 
+    for(i=0; i<6;i++)
+        fprintf(logfile,"%02X:", arph->tha[i]); 
+
+    printf("\nTarget IP: "); 
+    for(i=0; i<4; i++)
+        fprintf(logfile,"%d.", arph->tpa[i]); 
+    
+    printf("\n"); 
+
+	
+}
 void print_ip_header(unsigned char* Buffer, int Size)
 {
     print_ethernet_header(Buffer , Size);
-   
-    unsigned short iphdrlen;
          
     struct iphdr *iph = (struct iphdr *)(Buffer  + sizeof(struct ethhdr) );
-    iphdrlen =iph->ihl*4;
      
     memset(&source, 0, sizeof(source));
     source.sin_addr.s_addr = iph->saddr;
