@@ -33,12 +33,17 @@ void print_raw(unsigned char*, int);
 FILE *logfile;
 struct sockaddr_in source,dest;
 int tcp=0,udp=0,icmp=0,others=0,igmp=0,total=0,i,j; 
-char monitor[128] = "";
+char monitor[128] = "\0";
  
 int main()
 {
+	char *pos;
 	printf("Monitor IP: ");
+	fflush(stdin);
 	fgets(monitor,sizeof(monitor),stdin);
+	fflush(stdin);
+	if((pos=strchr(monitor,'\n')) != NULL){*pos = '\0';}
+	strtok(monitor,"\n");
 
 	int saddr_size , data_size;
 	struct sockaddr saddr;
@@ -94,7 +99,7 @@ void ProcessPacket(unsigned char* buffer, int size)
 	dest.sin_addr.s_addr = iph->daddr;
 
 	if (ntohs(tcph->source) == 22 || ntohs(tcph->dest) == 22){return;}
-	if (strcmp(monitor,"") == 0 ){
+	if (monitor[0] != '\0'){
 		if (strcmp(inet_ntoa(source.sin_addr),monitor) != 0 || strcmp(inet_ntoa(dest.sin_addr),monitor) != 0 ){printf("returned");return;} 
 	}
 	
