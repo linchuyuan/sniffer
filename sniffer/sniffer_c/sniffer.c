@@ -87,17 +87,17 @@ void ProcessPacket(unsigned char* buffer, int size)
 	iphdrlen = iph->ihl*4;
 	struct tcphdr *tcph=(struct tcphdr*)(buffer + iphdrlen + sizeof(struct ethhdr));
 	
-	if (ntohs(tcph->source) == 22 || ntohs(tcph->dest) == 22){return;}
-	if (strcmp(monitor,"") == 0 ){
-		printf("entered");
-		if (strcmp(inet_ntoa(source.sin_addr),monitor) != 0 || strcmp(inet_ntoa(dest.sin_addr),monitor) != 0 ){printf("returned");return;} 
-	}
 	memset(&source, 0, sizeof(source));
 	source.sin_addr.s_addr = iph->saddr;
 
 	memset(&dest, 0, sizeof(dest));
 	dest.sin_addr.s_addr = iph->daddr;
 
+	if (ntohs(tcph->source) == 22 || ntohs(tcph->dest) == 22){return;}
+	if (strcmp(monitor,"") == 0 ){
+		if (strcmp(inet_ntoa(source.sin_addr),monitor) != 0 || strcmp(inet_ntoa(dest.sin_addr),monitor) != 0 ){printf("returned");return;} 
+	}
+	
 	if (strcmp(inet_ntoa(source.sin_addr),"192.168.0.12") == 0 || strcmp(inet_ntoa(dest.sin_addr),"192.168.0.12") == 0 ){return;} 
 	switch (eth->h_proto)
 	{
