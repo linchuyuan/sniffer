@@ -132,6 +132,7 @@ void print_others(unsigned char* Buffer, int Size)
 {
 	fprintf(logfile , "\n\n***********************Others*************************\n");
 	print_ip_header(Buffer,Size);
+	fprintf(logfile , "\n\n******************************************************\n");
 } 
 void print_ethernet_header(unsigned char* Buffer, int Size)
 {
