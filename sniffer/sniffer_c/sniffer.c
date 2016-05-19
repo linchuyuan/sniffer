@@ -32,7 +32,7 @@ void print_raw(unsigned char*, int);
  
 FILE *logfile;
 struct sockaddr_in source,dest;
-int tcp=0,udp=0,icmp=0,others=0,igmp=0,total=0,i,j; 
+int tcp=0,udp=0,icmp=0,others=0,igmp=0,total=0,i,j,dumped=0; 
 char monitor[128] = "\0";
  
 int main()
@@ -55,8 +55,7 @@ int main()
 	{
 		printf("Unable to create log.txt file.");
 	}
-	printf("Starting...\n");
-     
+	printf("Starting sniffer\nCapturing %s...\n",monitor);
 	int sock_raw = socket( AF_PACKET , SOCK_RAW , htons(ETH_P_ALL)) ;
 	//setsockopt(sock_raw , SOL_SOCKET , SO_BINDTODEVICE , "eth0" , strlen("eth0")+ 1 );
      
@@ -86,7 +85,6 @@ void ProcessPacket(unsigned char* buffer, int size)
 {
 	
 	struct ethhdr *eth = (struct ethhdr *)buffer;
-
 	struct iphdr *iph = (struct iphdr*)(buffer + sizeof(struct ethhdr));
 	unsigned short iphdrlen;
 	iphdrlen = iph->ihl*4;
@@ -100,10 +98,14 @@ void ProcessPacket(unsigned char* buffer, int size)
 
 	if (ntohs(tcph->source) == 22 || ntohs(tcph->dest) == 22){return;}
 	if (monitor[0] != '\0'){
-		if (strcmp(inet_ntoa(source.sin_addr),monitor) != 0 || strcmp(inet_ntoa(dest.sin_addr),monitor) != 0 ){printf("returned");return;} 
+		if (strcmp(inet_ntoa(source.sin_addr),monitor) != 0 && strcmp(inet_ntoa(dest.sin_addr),monitor) != 0 )
+		{
+			//printf("%s %s %d %d %d\n",inet_ntoa(source.sin_addr),monitor,strcmp(inet_ntoa(source.sin_addr),monitor),strlen(inet_ntoa(source.sin_addr)),strlen(monitor));
+			return;
+		} 
 	}
 	
-	if (strcmp(inet_ntoa(source.sin_addr),"192.168.0.12") == 0 || strcmp(inet_ntoa(dest.sin_addr),"192.168.0.12") == 0 ){return;} 
+	if (strcmp(inet_ntoa(source.sin_addr),"192.168.0.12") == 0 || strcmp(inet_ntoa(dest.sin_addr),"192.168.0.12") == 0 ){dumped++;return;} 
 	switch (eth->h_proto)
 	{
 		case 0x0608:
@@ -140,7 +142,7 @@ void ProcessPacket(unsigned char* buffer, int size)
 		print_others(buffer,size);
 	break;
 }
-	printf("TCP : %d   UDP : %d   ICMP : %d   IGMP : %d   Others : %d   Total : %d\r", tcp , udp , icmp , igmp , others , total);
+	printf("TCP : %d   UDP : %d   ICMP : %d   IGMP : %d   Others : %d   Total : %d	Dumped : %d \r", tcp , udp , icmp , igmp , others , total,dumped);
 }
 void print_others(unsigned char* Buffer, int Size)
 {
