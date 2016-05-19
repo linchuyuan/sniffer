@@ -75,14 +75,21 @@ int main()
  
 void ProcessPacket(unsigned char* buffer, int size)
 {
+	char monitor[128] = "";
+	printf("Monitor IP: ");
+    scanf("%c", &monitor);
+	
 	struct ethhdr *eth = (struct ethhdr *)buffer;
 
 	struct iphdr *iph = (struct iphdr*)(buffer + sizeof(struct ethhdr));
 	unsigned short iphdrlen;
 	iphdrlen = iph->ihl*4;
 	struct tcphdr *tcph=(struct tcphdr*)(buffer + iphdrlen + sizeof(struct ethhdr));
-	if (ntohs(tcph->source) == 22 || ntohs(tcph->dest) == 22){return;}
 	
+	if (ntohs(tcph->source) == 22 || ntohs(tcph->dest) == 22){return;}
+	if ((strcmp(monitor,"") != 0 ){
+		if (strcmp(inet_ntoa(source.sin_addr),monitor) != 0 || strcmp(inet_ntoa(dest.sin_addr),monitor) != 0 ){return;} 
+	}
 	memset(&source, 0, sizeof(source));
 	source.sin_addr.s_addr = iph->saddr;
 
