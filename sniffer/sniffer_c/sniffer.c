@@ -36,97 +36,97 @@ int tcp=0,udp=0,icmp=0,others=0,igmp=0,total=0,i,j;
  
 int main()
 {
-    int saddr_size , data_size;
-    struct sockaddr saddr;
+	int saddr_size , data_size;
+	struct sockaddr saddr;
          
-    unsigned char *buffer = (unsigned char *) malloc(65536); //Its Big!
+	unsigned char *buffer = (unsigned char *) malloc(65536); //Its Big!
      
-    logfile=fopen("log.txt","w");
-    if(logfile==NULL) 
-    {
-        printf("Unable to create log.txt file.");
-    }
-    printf("Starting...\n");
+	logfile=fopen("log.txt","w");
+	if(logfile==NULL) 
+	{
+		printf("Unable to create log.txt file.");
+	}
+	printf("Starting...\n");
      
-    int sock_raw = socket( AF_PACKET , SOCK_RAW , htons(ETH_P_ALL)) ;
-    //setsockopt(sock_raw , SOL_SOCKET , SO_BINDTODEVICE , "eth0" , strlen("eth0")+ 1 );
+	int sock_raw = socket( AF_PACKET , SOCK_RAW , htons(ETH_P_ALL)) ;
+	//setsockopt(sock_raw , SOL_SOCKET , SO_BINDTODEVICE , "eth0" , strlen("eth0")+ 1 );
      
-    if(sock_raw < 0)
-    {
-        perror("Socket Error");
-        return 1;
-    }
-    while(1)
-    {      
+	if(sock_raw < 0)
+	{
+		perror("Socket Error");
+		return 1;
+	}
+	while(1)
+	{      
 		saddr_size = sizeof saddr;
-        data_size = recvfrom(sock_raw , buffer , 65536 , 0 , &saddr , (socklen_t*)&saddr_size);
-        if(data_size <0 )
-        {
-            printf("Recvfrom error , failed to get packets\n");
-            return 1;
-        }
-        //Now process the packet
-        ProcessPacket(buffer , data_size);
-    }
-    close(sock_raw);
-    printf("Finished");
-    return 0;
+		data_size = recvfrom(sock_raw , buffer , 65536 , 0 , &saddr , (socklen_t*)&saddr_size);
+		if(data_size <0 )
+		{
+			printf("Recvfrom error , failed to get packets\n");
+			return 1;
+		}
+		//Now process the packet
+		ProcessPacket(buffer , data_size);
+	}
+	close(sock_raw);
+	printf("Finished");
+	return 0;
 }
  
 void ProcessPacket(unsigned char* buffer, int size)
 {
 	struct ethhdr *eth = (struct ethhdr *)buffer;
 
-    struct iphdr *iph = (struct iphdr*)(buffer + sizeof(struct ethhdr));
-    unsigned short iphdrlen;
-    iphdrlen = iph->ihl*4;
-    struct tcphdr *tcph=(struct tcphdr*)(buffer + iphdrlen + sizeof(struct ethhdr));
-    if (ntohs(tcph->source) == 22 || ntohs(tcph->dest) == 22){return;}
+	struct iphdr *iph = (struct iphdr*)(buffer + sizeof(struct ethhdr));
+	unsigned short iphdrlen;
+	iphdrlen = iph->ihl*4;
+	struct tcphdr *tcph=(struct tcphdr*)(buffer + iphdrlen + sizeof(struct ethhdr));
+	if (ntohs(tcph->source) == 22 || ntohs(tcph->dest) == 22){return;}
 	
-    memset(&source, 0, sizeof(source));
-    source.sin_addr.s_addr = iph->saddr;
+	memset(&source, 0, sizeof(source));
+	source.sin_addr.s_addr = iph->saddr;
 
-    memset(&dest, 0, sizeof(dest));
-    dest.sin_addr.s_addr = iph->daddr;
+	memset(&dest, 0, sizeof(dest));
+	dest.sin_addr.s_addr = iph->daddr;
 
-    if (strcmp(inet_ntoa(source.sin_addr),"192.168.0.12") == 0 || strcmp(inet_ntoa(dest.sin_addr),"192.168.0.12") == 0 ){return;} 
+	if (strcmp(inet_ntoa(source.sin_addr),"192.168.0.12") == 0 || strcmp(inet_ntoa(dest.sin_addr),"192.168.0.12") == 0 ){return;} 
 	switch (eth->h_proto)
 	{
 		case 0x0608:
-			fprintf(logfile , "\n\n***********************ARP*************************\n");
-			print_ethernet_header(buffer,size);
-			print_arp(buffer,size);
-			fprintf(logfile, "\n\n****************************************************\n");
-			return;
+		fprintf(logfile , "\n\n***********************ARP*************************\n");
+		print_ethernet_header(buffer,size);
+		print_arp(buffer,size);
+		fprintf(logfile, "\n\n****************************************************\n");
+		return;
 	}
 
-    switch (iph->protocol) 
-    {
-    /*    case 1:  //ICMP Protocol
-            ++icmp;
-            print_icmp_packet( buffer , size);
-            break;
-    */     
-    /*    case 2:  //IGMP Protocol
-            ++igmp;
-            break;
-    */     
-        case 6:  //TCP Protocol
-            ++tcp;
-            print_tcp_packet(buffer , size);
-            break;
+	switch (iph->protocol) 
+	{
+	/*    case 1:  //ICMP Protocol
+			++icmp;
+			print_icmp_packet( buffer , size);
+			break;
+	*/     
+	/*    case 2:  //IGMP Protocol
+			++igmp;
+			break;
+	*/     
+	case 6:  //TCP Protocol
+		++tcp;
+		print_tcp_packet(buffer , size);
+		break;
          
-        case 17: //UDP Protocol
-            ++udp;
-            print_udp_packet(buffer , size);
-            break;
+	case 17: //UDP Protocol
+		++udp;
+		print_udp_packet(buffer , size);
+		break;
          
-        default: //Some Other Protocol like ARP etc.
-            ++others;
-			print_ip_header(buffer,size);
-            break;
-    }
-    printf("TCP : %d   UDP : %d   ICMP : %d   IGMP : %d   Others : %d   Total : %d\r", tcp , udp , icmp , igmp , others , total);
+	default: //Some Other Protocol like ARP etc.
+		++others;
+		print_ip_header(buffer,size);
+	break;
+}
+	printf("TCP : %d   UDP : %d   ICMP : %d   IGMP : %d   Others : %d   Total : %d\r", tcp , udp , icmp , igmp , others , total);
 }
 void print_others(unsigned char* Buffer, int Size)
 {
@@ -135,13 +135,13 @@ void print_others(unsigned char* Buffer, int Size)
 } 
 void print_ethernet_header(unsigned char* Buffer, int Size)
 {
-    struct ethhdr *eth = (struct ethhdr *)Buffer;
+	struct ethhdr *eth = (struct ethhdr *)Buffer;
      
-    fprintf(logfile , "\n");
-    fprintf(logfile , "Ethernet Header\n");
-    fprintf(logfile , "   |-Destination Address : %.2X-%.2X-%.2X-%.2X-%.2X-%.2X \n", eth->h_dest[0] , eth->h_dest[1] , eth->h_dest[2] , eth->h_dest[3] , eth->h_dest[4] , eth->h_dest[5] );
-    fprintf(logfile , "   |-Source Address      : %.2X-%.2X-%.2X-%.2X-%.2X-%.2X \n", eth->h_source[0] , eth->h_source[1] , eth->h_source[2] , eth->h_source[3] , eth->h_source[4] , eth->h_source[5] );
-    fprintf(logfile , "   |-Protocol            : %u \n",(unsigned short)eth->h_proto);
+	fprintf(logfile , "\n");
+	fprintf(logfile , "Ethernet Header\n");
+	fprintf(logfile , "   |-Destination Address : %.2X-%.2X-%.2X-%.2X-%.2X-%.2X \n", eth->h_dest[0] , eth->h_dest[1] , eth->h_dest[2] , eth->h_dest[3] , eth->h_dest[4] , eth->h_dest[5] );
+	fprintf(logfile , "   |-Source Address      : %.2X-%.2X-%.2X-%.2X-%.2X-%.2X \n", eth->h_source[0] , eth->h_source[1] , eth->h_source[2] , eth->h_source[3] , eth->h_source[4] , eth->h_source[5] );
+	fprintf(logfile , "   |-Protocol            : %u \n",(unsigned short)eth->h_proto);
 }
 void print_arp(unsigned char* Buffer, int Size)
 {
@@ -152,19 +152,19 @@ void print_arp(unsigned char* Buffer, int Size)
 	
 	fprintf(logfile,"Sender MAC: "); 
 	for(i=0; i<6;i++)
-        fprintf(logfile,"%02X:", arph->arp_sha[i]); 
+		fprintf(logfile,"%02X:", arph->arp_sha[i]); 
 
-    fprintf(logfile,"\nSender IP: "); 
+	fprintf(logfile,"\nSender IP: "); 
 	for(i=0; i<4;i++)
-        fprintf(logfile,"%d.", arph->arp_spa[i]); 
+		fprintf(logfile,"%d.", arph->arp_spa[i]); 
 
-    fprintf(logfile,"\nTarget MAC: "); 
-    for(i=0; i<6;i++)
-        fprintf(logfile,"%02X:", arph->arp_tha[i]); 
+	fprintf(logfile,"\nTarget MAC: "); 
+	for(i=0; i<6;i++)
+		fprintf(logfile,"%02X:", arph->arp_tha[i]); 
 
-    fprintf(logfile,"\nTarget IP: "); 
-    for(i=0; i<4; i++)
-        fprintf(logfile,"%d.", arph->arp_tpa[i]);
+	fprintf(logfile,"\nTarget IP: "); 
+		for(i=0; i<4; i++)
+	fprintf(logfile,"%d.", arph->arp_tpa[i]);
 	fprintf(logfile,"\n"); 
 	
 	switch (op_index){
@@ -178,7 +178,7 @@ void print_arp(unsigned char* Buffer, int Size)
 			fprintf(logfile, "unknown operation code");
 			break;
 	}
-    fprintf(logfile,"\n"); 
+	fprintf(logfile,"\n"); 
 
 	
 }
