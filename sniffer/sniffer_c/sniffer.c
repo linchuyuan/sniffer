@@ -123,7 +123,7 @@ void ProcessPacket(unsigned char* buffer, int size)
          
 	default: //Some Other Protocol like ARP etc.
 		++others;
-		print_ip_header(buffer,size);
+		print_others(buffer,size);
 	break;
 }
 	printf("TCP : %d   UDP : %d   ICMP : %d   IGMP : %d   Others : %d   Total : %d\r", tcp , udp , icmp , igmp , others , total);
