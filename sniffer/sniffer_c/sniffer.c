@@ -96,6 +96,7 @@ void ProcessPacket(unsigned char* buffer, int size)
 			fprintf(logfile , "\n\n***********************ARP*************************\n");
 			print_ethernet_header(buffer,size);
 			print_arp(buffer,size);
+			fprintf(logfile, "\n\n****************************************************\n");
 			return;
 	}
 
@@ -144,9 +145,10 @@ void print_ethernet_header(unsigned char* Buffer, int Size)
 }
 void print_arp(unsigned char* Buffer, int Size)
 {
+	int op_index = -1;
 	struct ether_arp *arph = (struct ether_arp*)(Buffer + sizeof(struct ethhdr));
-	if (ntohs(arph->ea_hdr.ar_op) == ARPOP_REQUEST){fprintf(logfile,"ARP Request \n");}
-	else if (ntohs(arph->ea_hdr.ar_op) == ARPOP_REPLY){fprintf(logfile,"ARP Reply \n");}
+	if (ntohs(arph->ea_hdr.ar_op) == ARPOP_REQUEST){op_index = 1;fprintf(logfile,"ARP Request \n");}
+	else if (ntohs(arph->ea_hdr.ar_op) == ARPOP_REPLY){op_index = 2; fprintf(logfile,"ARP Reply \n");}
 	
 	fprintf(logfile,"Sender MAC: "); 
 	for(i=0; i<6;i++)
@@ -162,8 +164,20 @@ void print_arp(unsigned char* Buffer, int Size)
 
     fprintf(logfile,"\nTarget IP: "); 
     for(i=0; i<4; i++)
-        fprintf(logfile,"%d.", arph->arp_tpa[i]); 
-    
+        fprintf(logfile,"%d.", arph->arp_tpa[i]);
+	fprintf(logfile,"\n"); 
+	
+	switch (op_index){
+		case 1:
+			fprintf(logfile, "Who has %d.%d.%d.%d Please tell %d.%d.%d.%d \n",arph->arp_tpa[0],arph->arp_tpa[1],arph->arp_tpa[2],arph->arp_tpa[3],arph->arp_spa[0],arph->arp_spa[1],arph->arp_spa[2],arph->arp_spa[3]);
+			break;
+		case 2:
+			fprintf(logfile, "%d.%d.%d.%d is at %.2X-%.2X-%.2x-%.2x-%.2x-%.2xi \n",arph->arp_tpa[0],arph->arp_tpa[1],arph->arp_tpa[2],arph->arp_tpa[3],arph->arp_tha[0],arph->arp_tha[1],arph->arp_tha[2],arph->arp_tha[3],arph->arp_tha[4],arph->arp_tha[5]);
+			break;
+		default:
+			fprintf(logfile, "unknown operation code");
+			break;
+	}
     fprintf(logfile,"\n"); 
 
 	
